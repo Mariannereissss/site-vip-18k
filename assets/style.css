@@ -16,6 +16,7 @@ body {
 
 .container {
   max-width: 1280px;
+  max-height: 100px;
   margin: 0 auto;
   padding: 0 30px;
 }
@@ -156,7 +157,6 @@ header {
     top: 60%;
     transform: translateY(-50%);
     background-color: transparent;
-    color: #fff;
     border: none;
     font-size: 2rem;
     padding: 10px;
@@ -178,12 +178,13 @@ button.depois {
 
 .carrossel {
   position: relative;
-  max-width: 100%;
+  max-width: 97%;
   height: 500px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: auto;
 }
 
 .carrossel .slide {
