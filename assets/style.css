@@ -12,23 +12,22 @@ body {
   margin: 0;
   padding: 0;
   color: var(--text-claro);
-}
-
-.container {
-  max-width: 1280px;
-  max-height: 100px;
-  margin: 0 auto;
-  padding: 0 30px;
+  box-sizing: border-box;
 }
 
 /* TOPO */
+
+.container {
+  width: 100%;
+  max-height: 100px;
+}
 
 .topo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  margin-top: 15px;
+  padding: 0;
+  margin: 0;
 }
 
 .logo-area img {
@@ -67,7 +66,7 @@ body {
   position: absolute;
   right: 12px;
   top: 52%;
-  right: 19%;
+  right: 24%;
   transform: translateY(-50%);
   background: transparent;
   border: none;
@@ -88,7 +87,8 @@ body {
 .icones-usuario {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 25px;
+  margin: 20px;
 }
 
 .icone {
@@ -100,6 +100,7 @@ body {
   color: var(--dourado);
   background-color: transparent;
   border: none;
+  text-decoration: none;
 }
 
 .icone:hover {
@@ -125,8 +126,8 @@ body {
   justify-content: space-between;
   list-style: none;
   padding: 10px 0;
-  margin: 0;
-  gap: 28px;
+  margin: 0 70px;
+  gap: 20px;
 }
 
 .nav-bar a {
@@ -134,7 +135,7 @@ body {
   text-decoration: none;
   font-weight: 500;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 14px;
   transition: color 0.3s;
   letter-spacing: 0.8px;
 }
@@ -178,7 +179,7 @@ button.depois {
 
 .carrossel {
   position: relative;
-  max-width: 97%;
+  max-width: 98%;
   height: 500px;
   overflow: hidden;
   display: flex;
@@ -226,11 +227,22 @@ button.depois {
   flex-direction: row;
   gap: 50px;
   justify-content: center;
+  padding: 5px;
 }
 
 .frete, .satisfacao, .garantia, .seguranca {
   display: flex;
   flex-direction: row;
+}
+
+.textinho  {
+  width: 140px;
+  text-align: center;
+  margin: 0;
+}
+
+.textinho span {
+  color: var(--dourado);
 }
 
 /*DESTAQUES E LANÇAMENTOS*/
@@ -249,16 +261,16 @@ button.depois {
     text-transform: uppercase;
     color: var(--dourado);
     display: inline-block;
-    margin: 10px 0 10px 70px;
+    margin-bottom: 10px;
     font-size: 1.1rem;
 }
 
 .conteiner-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 16%);
   grid-template-rows: 1fr;
-  column-gap: 10px;
-  margin: 0 100px 20px 100px;
+  column-gap: 25px;
+  justify-content: center;
 }
 
 .produto {
@@ -269,6 +281,7 @@ button.depois {
   align-items: center;
   padding: 20px;
   gap: 5px;
+  text-align: center;
 }
 
 .produto img {
@@ -309,7 +322,7 @@ button.comprar-produto {
 }
 
 button.comprar-produto:hover{
-  filter: brightness(1.6);
+  filter: brightness(1.1);
   transition: 0.2s;
 }
 
@@ -326,7 +339,7 @@ button.comprar-produto:hover{
 
 footer {
   width: 100%;
-  height: 200px;
+  height: 150px;
   background-color: #1a1a1a;
   border-top: 1px solid var(--dourado);
   display: flex;
@@ -347,8 +360,9 @@ footer {
 }
 
 .titulo {
-  margin: 20px 20px 20px 0;
+  margin: 20px 20px 5px 0;
   font-size: 1.3rem;
+  color: var(--dourado);
 }
 
 .rodape img {
@@ -369,12 +383,11 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
-.coluna ul li a:hover {
-  filter: brightness(1.6);
-  transition: 0.2s;
+.coluna a:hover {
+  color: #d5bf82;
 }
 
 .coluna {
