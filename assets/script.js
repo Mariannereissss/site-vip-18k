@@ -1,4 +1,4 @@
-//carrossel 1//
+//carrossel//
 document.addEventListener("DOMContentLoaded", () => {
     let slideIndex = 0;
     const slides = document.querySelectorAll(".slide");
