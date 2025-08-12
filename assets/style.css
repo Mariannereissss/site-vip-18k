@@ -121,8 +121,8 @@ body {
 
 .nav-bar {
   background-color: var(--fundo-escuro);
-  border-top: 1px solid var(--dourado-mais-escuro);
-  border-bottom: 1px solid var(--dourado-mais-escuro);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
   margin-top: 2px;
 }
 
@@ -132,13 +132,14 @@ body {
   list-style: none;
   padding: 10px 0;
   margin: 0 70px;
-  gap: 20px;
+  gap: 10px;
 }
 
 .nav-bar ul li a {
   text-decoration: none;
-  color: var(--dourado-mais-claro);
-  text-transform: uppercase
+  color: var(--dourado);
+  letter-spacing: 1.2px;
+  font-weight: 400;
 }
 
 .nav-bar ul li a:hover {
@@ -254,6 +255,11 @@ header {
     z-index: 1;
 }
 
+.antes:hover, .depois:hover {
+  filter: brightness(1.6);
+  transition: 0.2s;
+}
+
 button.antes {
     left: 20px;
 }
@@ -268,7 +274,7 @@ button.depois {
 
 .carrossel {
   position: relative;
-  max-width: 98%;
+  max-width: 100%;
   height: 500px;
   overflow: hidden;
   display: flex;
@@ -314,27 +320,28 @@ button.depois {
   border-top: 1px solid rgba(212, 175, 55, 0.3);
   display: flex;
   flex-direction: row;
-  gap: 50px;
   justify-content: center;
-  padding: 5px;
+  gap: 70px;
+  padding: 10px;
 }
 
-.frete, .satisfacao, .garantia, .seguranca {
+.etiquetinhas {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .textinho  {
   width: 140px;
-  text-align: center;
   margin: 0;
+  align-self: center;
 }
 
 .textinho span {
   color: var(--dourado);
 }
 
-/*DESTAQUES E LANÇAMENTOS*/
+/*PROMOCAO E MAIS VENDIDOS*/
 
 .titulo-linha {
     display: flex;
@@ -368,7 +375,7 @@ button.depois {
   background-color: var(--cinza-escuro);
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   gap: 5px;
   text-align: center;
 }
@@ -383,8 +390,8 @@ button.depois {
   margin: 3px;
 }
 
-.produto.h2 {
-  font-weight: 400;
+.produto h2 {
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.8);
 }
 
 .produto .especifico {
