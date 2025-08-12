@@ -135,24 +135,103 @@ body {
   gap: 20px;
 }
 
-.nav-bar ul li {
-  position: relative;
-}
-
 .nav-bar ul li a {
-  color: var(--amarelo);
   text-decoration: none;
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 14px;
-  transition: color 0.3s;
-  letter-spacing: 0.8px;
-  display: block;
+  color: var(--dourado-mais-claro);
+  text-transform: uppercase
 }
 
-.nav-bar a:hover {
+.nav-bar ul li a:hover {
+  color: var(--text-claro);
+}
+
+/* garante camada acima do banner */
+.nav-bar { position: relative; z-index: 20; }
+
+/* cada li será a área de hover */
+.nav-bar li { position: relative; }
+
+/* --- SUBMENU (estado inicial) --- */
+.nav-bar .submenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  top: calc(100% + 8px);    /* distância abaixo do item da nav */
+  left: 0;
+  min-width: 160px;
+  list-style: none;
+  margin: 0;
+  border-radius: 8px;
+  padding: 6px;
+  background-color: var(--cinza-leve);
+  border: 1px solid var(--dourado-mais-escuro);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  z-index: 30;
+
+  /* animação / esconder */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none; /* evita clique quando escondido */
+  transition:
+    opacity .22s ease,
+    transform .22s ease,
+    visibility 0s linear .22s; /* atrasa só a visibilidade pra não "clicar no invisível" */
+}
+
+/* links dentro do submenu */
+.nav-bar .submenu li a {
+  display: block;
+  padding: 10px 14px;
+  color: var(--dourado);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  border-top: var(--amarelo);
+}
+.nav-bar .submenu li a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
   color: var(--branco);
 }
+
+/* --- MOSTRAR COM HOVER/FOCUS (animação) --- */
+.nav-bar li.dropdown:hover .submenu,
+.nav-bar li.dropdown:focus-within .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto; /* agora pode clicar */
+  transition:
+    opacity .22s ease,
+    transform .22s ease,
+    visibility 0s; /* fica visível imediatamente quando abre */
+}
+
+/* "ponte" transparente entre o item e o submenu (evita perder o hover no espacinho) */
+.nav-bar li.dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 10px; /* mesma ideia da distância, pode ajustar */
+}
+
+/* animação item-a-item (opcional) */
+.nav-bar .submenu li {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+.nav-bar li.dropdown:hover .submenu li,
+.nav-bar li.dropdown:focus-within .submenu li {
+  opacity: 1;
+  transform: translateY(0);
+}
+.nav-bar li.dropdown:hover .submenu li:nth-child(1) { transition-delay: .04s; }
+.nav-bar li.dropdown:hover .submenu li:nth-child(2) { transition-delay: .08s; }
+
 
 /*CABEÇALHO*/ 
 
@@ -277,9 +356,9 @@ button.depois {
 
 .conteiner-grid {
   display: grid;
-  grid-template-columns: repeat(4, 16%);
+  grid-template-columns: repeat(4, 17%);
   grid-template-rows: 1fr;
-  column-gap: 25px;
+  column-gap: 50px;
   justify-content: center;
 }
 
@@ -426,7 +505,48 @@ footer {
   margin: 0;
 }
 
+.menu-conta {
+  position: relative;
+  display: inline-block;
+}
 
+/* Menu dropdown */
+.dropdown-conta {
+  display: none;
+  position: absolute;
+  top: 100%; /* logo abaixo do botão */
+  right: 0;
+  background-color: var(--cinza-leve);
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  border: 1px solid var(--dourado-mais-escuro);
+  z-index: 100;
+  text-transform: uppercase;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Links do menu */
+.dropdown-conta a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--dourado);
+  font-size: 14px;
+}
+
+.dropdown-conta a:hover {
+  background-color: rgba(255,255,255,0.05);
+  color: var(--text-claro);
+}
+
+/* Mostrar quando ativo */
+.dropdown-conta.show {
+  display: block;
+}
+
+.produto { cursor: pointer; }
+.produto .comprar-produto { cursor: pointer; } /* mantém o cursor de botão */
 
 
 
