@@ -9,6 +9,7 @@
   --dourado-mais-escuro: rgba(245,197,66,.50);
   --amarelo: #e6c86a;
   --cinza-escuro: #1a1a1a;
+  --header-h: 144px;
 }
 
 body {
@@ -239,6 +240,20 @@ body {
 header {
     background-color: #000000;
     border-bottom: 1px solid rgba(255, 255, 255, .08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+main, body {
+  padding-top: 70px;
+}
+
+.header .submenu {
+  z-index: 1100;
 }
 
 /*CARROSSEL*/
@@ -269,7 +284,7 @@ button.depois {
 }
 
 .banner {
-    margin-top: 20px;
+    margin: 15px 0;
 }
 
 .carrossel {
@@ -290,7 +305,7 @@ button.depois {
 }
 
 .carrossel .slide img {
-    width: 60%;
+    width: 90%; /*max-width:100% apenas em telas de desktop, nas outras max-width: 1200px*/
     height: 50%;
     object-fit: cover;
     border-radius: 4px;
@@ -391,7 +406,7 @@ button.depois {
 }
 
 .produto h2 {
-  text-shadow: 4px 4px 8px rgba(0,0,0,0.8);
+  text-shadow: 6px 6px 8px rgba(0,0,0,0.9);
 }
 
 .produto .especifico {
@@ -411,7 +426,7 @@ button.depois {
 button.comprar-produto {
   margin: 20px;
   padding: 10px 16px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: var(--dourado);
   border: none;
   font-weight: 600;
@@ -540,7 +555,7 @@ footer {
   padding: 10px;
   text-decoration: none;
   color: var(--dourado);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .dropdown-conta a:hover {

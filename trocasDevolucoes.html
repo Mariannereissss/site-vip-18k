@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vip18k</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Vip 18k</title>
 </head>
 <body>
-    <header>
+  <header>
     <!--TOPO-->
     <div class="topo container">
     <div class="logo-area">
@@ -25,14 +30,24 @@
 
     <!--ICONES-->
     <div class="icones-usuario">
-      <button class="icone">
-        <img src="assets/imagens/icons8-usuário-30.png" alt="Minha conta">
-        <span>Minha conta</span>
-      </button>
-      <button class="icone">
+      <!--MINHA CONTA-->
+      <div class="menu-conta">
+        <button class="icone" id="btn-conta">
+          <img src="assets/imagens/icons8-usuário-30.png" alt="Minha conta">
+          <span>Minha conta</span>
+        </button>
+
+        <!--MENU QUE ABRE AO CLICAR-->
+        <div class="dropdown-conta" id="dropdown-conta">
+          <a href="#">Entrar</a>
+          <a href="#">Registrar</a>
+        </div>
+      </div>
+
+      <a class="icone" href="carrinho.html">
         <img src="assets/imagens/icons8-carrinho-30.png" alt="Meu carrinho">
         <span>Meu carrinho</span>
-      </button>
+      </a>
     </div>
   </div>
 
@@ -40,16 +55,57 @@
   <!--NAV-BAR-->
   <nav class="nav-bar ">
     <ul>
-      <li><a href="#">Início</a></li>
-      <li><a href="#">Cordões</a></li>
-      <li><a href="#">Anéis</a></li>
-      <li><a href="#">Pulseiras</a></li>
-      <li><a href="#">Pingentes</a></li>
-      <li><a href="#">Escapulários</a></li>
-      <li><a href="#">Kits</a></li>
-      <li><a href="#">Contatos</a></li>
+      <li><a href="index.html">Início</a></li>
+
+        <li class="dropdown">
+          <a href="#">Cordões</a>
+          <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+        </li>
+
+      <li class="dropdown">
+        <a href="#">Anéis</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Pulseiras</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Pingentes</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Escapulários</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Kits</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+      <li><a href="https://wa.me/5521967010513">Atacado</a></li>
+      <li><a href="contatos.html">Contatos</a></li>
     </ul>
   </nav>
 </header>
-</body>
-</html>
