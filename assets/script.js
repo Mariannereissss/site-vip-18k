@@ -66,3 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.querySelector('.etiquetas');
+    if (el) el.scrollLeft = 0;
+  });
