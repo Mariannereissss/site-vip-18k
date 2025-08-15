@@ -307,19 +307,20 @@ button.depois {
   align-items: center;
   justify-content: center;
   margin: auto;
-  max-width: 100%;
-  width: 100%;
-  max-height: 500px;
+  max-width: 90%;
+  width: 90%;
+  max-height: 410px;
 }
 
 .carrossel .slide {
   display: none;
   height: auto;
-  width: 100%;
+  width: 90%;
+  margin: auto;
 }
 
 .carrossel .slide img {
-    width: 90%;
+    width: 100%;
     height: 50%;
     object-fit: cover;
     border-radius: 4px;
@@ -338,147 +339,69 @@ button.depois {
   to { opacity: 1; }
 }
 
+.indicadores {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.ativo {
+  background-color: var(--dourado);
+}
+
+
 /*MENU DE ETIQUETAS*/
 
-.etiquetas { max-height: 90px; background-color: var(--cinza-escuro); margin: 0; border-bottom: 1px solid rgba(212, 175, 55, 0.3); border-top: 1px solid rgba(212, 175, 55, 0.3); display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 25px; padding: 10px; flex: 0 0 auto; scroll-snap-align: start; padding: 10px 6px; padding-inline: 10px 12px; scroll-padding-inline: 10px 12px; width: 100%; height: auto; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-left: 12px; -webkit-overflow-scrolling: touch; } .etiquetas::after { content: ""; flex: 0 0 12px; } .etiquetinhas { display: flex; flex-direction: row; justify-content: center; min-width: 60px; } .etiquetinhas img { width: 60px; height: 60px; max-height: 80px; max-width: 80px; object-fit: contain; } .textinho { max-width: 140px; margin: 0; align-self: center; line-height: 1.2; } .textinho span { color: var(--dourado); }
+.etiquetas {  
+  background-color: var(--cinza-escuro); 
+  margin: 0; 
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
+  border-top: 1px solid rgba(212, 175, 55, 0.3); 
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center;
+  align-items: center; 
+  gap: 25px; 
+  padding: 10px; 
+  width: 100%; 
+  height: auto; 
+}  
 
-@media (max-width: 900px) {
-  /* ===== CARROSSEL PROFISSIONAL / SWIPE ===== */
-.etiquetas {
-  /* layout em colunas: cada etiqueta vira um "slide" */
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: clamp(180px, 24vw, 260px);
-  gap: 16px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  scroll-padding-inline: 20px;
-  padding: 10px 6px;
-  padding-inline: 10px 12px;  
-  scroll-padding-inline: 10px 12px;
-  width: 100%;
-  height: auto;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 12px;         
-  -webkit-overflow-scrolling: touch;
-   padding-inline: 20px;
-  scroll-padding-inline: 20px;
-  
+.etiquetinhas { 
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  min-width: 60px; 
+} 
 
-  /* rolagem horizontal agradável */
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: 20px;          /* encosta “macio” nas bordas */
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  touch-action: pan-x;
-  overscroll-behavior-x: contain;
-  scrollbar-gutter: stable both-edges;  /* evita pulo quando a barra aparece */
-
-  /* visual */
-  align-items: center;
-  padding: 14px 20px;
-  background: var(--cinza-escuro);
-  border-top: 1px solid rgba(212,175,55,.3);
-  border-bottom: 1px solid rgba(212,175,55,.3);
-  position: relative;                   /* para os fades nas bordas */
-
-  /* esconde barra no mobile, mantém no desktop fino */
-  scrollbar-width: thin;                /* Firefox (desktop) */
-  scrollbar-color: rgba(212,175,55,.35) transparent;
-}
-.etiquetas::-webkit-scrollbar { height: 6px; }
-.etiquetas::-webkit-scrollbar-track { background: transparent; }
-.etiquetas::-webkit-scrollbar-thumb {
-  background: rgba(212,175,55,.35);
-  border-radius: 8px;
-}
-
-.etiquetas::before,
-.etiquetas::after {
-  content: "";
-  flex: 0 0 10px;                /* espaçadores nas pontas (flex) */
-}
-
-/* “Slides” */
-.etiquetinhas {
-  scroll-snap-align: center;            /* ou "start" se preferir encaixar à esquerda */
-  scroll-snap-stop: always;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  border-radius: 10px;
-  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
-  /* leve sombra para destacar cada célula */
-  box-shadow: 0 0 0 0 rgba(0,0,0,0);
-}
-.etiquetinhas:hover {
-  background-color: rgba(255,255,255,.04);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0,0,0,.22);
-}
-
-/* ícone + texto dimensionados fluentemente */
 .etiquetinhas img {
-  width: clamp(40px, 6vw, 60px);
-  height: clamp(40px, 6vw, 60px);
-  object-fit: contain;
-}
+  width: 50px; 
+  height: 50px; 
+  max-height: 80px; 
+  max-width: 80px; 
+  object-fit: contain; 
+} 
+
 .textinho {
-  font-size: clamp(.9rem, 2.6vw, 1rem);
-  line-height: 1.2;
-  max-width: clamp(140px, 28vw, 220px);
-  margin: 0;
-}
-.textinho span { color: var(--dourado); }
+  max-width: 140px; 
+  margin-left: 5px; 
+  align-self: center; 
+  line-height: 1.2; 
+  font-size: 0.9rem;
+} 
 
-/* Hints de arraste: fades nas bordas (não bloqueiam clique) */
-.etiquetas::before,
-.etiquetas::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 28px;
-  pointer-events: none;
-}
-
-.etiquetas::after {
-  content: "";
-  flex: 0 0 12px;   
-}
-
-.etiquetinhas {
-  flex: 0 0 auto;                 /* não esticar, largura do conteúdo */
-  scroll-snap-align: center;      /* snap no centro */
-  scroll-snap-stop: always;       /* “para” em cada item */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 180px; 
-}
-
-.etiquetinhas img {
-  width: 60px;
-  height: 60px;
-  max-height: 80px;
-  max-width: 80px;
-  object-fit: contain;
-}
-
-.textinho  {
-  max-width: 140px;
-  margin: 0;
-  align-self: center;
-  line-height: 1.2;
-}
-
-.textinho span {
-  color: var(--dourado);
-}
+.textinho span { 
+  color: var(--dourado); 
 }
 
 /*PROMOCAO E MAIS VENDIDOS*/
@@ -509,9 +432,6 @@ button.depois {
   
 }
 
-
-/*DESTAQUES*/
-
 div.produto {
   display: flex;
   flex-direction: column;
@@ -523,6 +443,7 @@ div.produto {
   text-align: center;
   width: 210px;
   margin: 10px;
+  border-radius: 20px;
 }
 
 .produto img {
@@ -554,12 +475,22 @@ div.produto {
 }
 
 button.comprar-produto {
+  -webkit-appearance: none; /* remove estilo padrão iOS */
+  -moz-appearance: none;
+  appearance: none;
   margin: 20px;
   padding: 10px 16px;
   border-radius: 15px;
   background-color: var(--dourado);
   border: none;
   font-weight: 600;
+  font-size: 1rem;
+}
+
+button.comprar-produto:focus, 
+button.comprar-produto:active {
+  outline: none;
+  color: #000;
 }
 
 button.comprar-produto:hover{
@@ -705,22 +636,172 @@ footer {
   display: none;
 }
 
+@media (max-width: 536px) {
+  .conteiner-grid {
+    display: flex;                    /* sai do grid */
+    flex-wrap: nowrap;
+    gap: 18px;
+    padding: 8px 12px 10px 12px;
+    overflow-x: auto;                 /* scroll horizontal (touch) */
+    overflow-y: visible;
+
+    scroll-snap-type: x proximity;    /* “encaixa” os cards */
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-left: 12px;
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+
+  /* cada card com largura igual e fixa no carrossel */
+  .conteiner-grid .produto {
+    flex: 0 0 150px;                    /* ajuste fino: ~1 card por tela */
+    max-width: 170px;  
+    height: 370px;   /* centraliza cada card ao parar */
+    transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+    margin: 0;      
+    scroll-snap-align: start;   
+    user-select: none; 
+    pointer-events: auto;          /* deixa o vertical subir para a página */           /* evita somar margens laterais */
+  }
+
+  /* imagem ocupa toda a largura do card */
+  .conteiner-grid .produto img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  /* card “ativo” (JS coloca a classe) */
+  .conteiner-grid .produto.ativo {
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  }
+
+  /* espaçador para o último não cortar */
+  .conteiner-grid::after {
+    content: "";
+    flex: 0 0 14px;                   /* igual ao padding/gap lateral */
+  }
+
+  /* barra de rolagem discreta */
+  .conteiner-grid::-webkit-scrollbar { height: 6px; }
+  .conteiner-grid::-webkit-scrollbar-track { background: transparent; }
+  .conteiner-grid::-webkit-scrollbar-thumb {
+    background: rgba(212,175,55,.35);
+    border-radius: 8px;
+  }
+
+  .comprar-produto {
+    color: #000 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    height: 310px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .rodape {
+    flex-direction: column;  /* empilha as colunas */
+    align-items: flex-start; /* começa do canto esquerdo */
+    gap: 0;
+    justify-content: start;
+    padding-bottom: 5px;
+    background-color: var(--cinza-escuro);
+    height: 340px;
+    margin: 0;
+    padding: 0;
+  }
+
+  p.titulo {
+    margin: 0;
+  }
+
+  .coluna {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start; /* garante que o título fique no canto */
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 10px;
+  }
+
+  .coluna .titulo {
+    margin-left: 0; /* título encostado no canto */
+  }
+
+  /* desloca o conteúdo da coluna (links, detalhes, redes) mais pra direita */
+  .coluna ul,
+  .coluna .detalhes {
+    margin-left: 20px;
+  }
+
+  /* para deixar ícone + texto alinhados de forma agradável */
+  .coluna .detalhes {
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 689px) {
-  header { background: var(--cinza-escuro); }
+  header { 
+    background: var(--cinza-escuro); 
+    height: 150px;
+  }
 
-  main{ padding-top: 90px; }
+  main{ 
+    padding-top: 60px; 
+  }
 
-  div.topo { 
-     background: var(--cinza-escuro);
+  div.topo{
+    background: var(--cinza-escuro);
+    width: 100%;
     display: grid;
-    grid-template-columns: auto 1fr auto;   /* hamb | busca | ícones */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas:
-      "logo logo logo"
-      "hamb search icons";
+      "hamb logo icons"
+      "search search search";
     align-items: center;
-    gap: 10px 12px;
-    padding: 8px 10px;
-    height: 200px;
+    gap: 6px 10px;       /* menos espaço vertical */
+    padding: 4px 10px;
+    justify-items: center;
+  }
+
+  .logo-area { 
+    grid-area: logo;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+  }
+
+  .hamburger { 
+    grid-area: hamb;  
+    justify-self: center; 
+  }
+
+  .caixa-de-pesquisa { 
+    grid-area: search; 
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icones-usuario { 
+    grid-area: icons; 
+    justify-self: center; 
+  }
+
+  .logo-area,
+  .caixa-de-pesquisa,
+  .hamburger,
+  .icones-usuario{   
+    background: transparent; 
   }
 
   .logo-area { grid-area: logo; justify-self: center; }
@@ -750,6 +831,7 @@ footer {
     max-width: none;
     min-width: 0;                /* permite encolher no grid */
   }
+
   .icones-usuario {
     grid-area: icons;
     margin: 0;
@@ -786,15 +868,19 @@ footer {
   /* Drawer do menu */
   .nav-bar {
     position: fixed;
-    top: 0; left: 0; bottom: 0;
-    width: 78%;
-    max-width: 340px;
+    top: 35px;  left: 0;
+    width: 40%;
+    max-width: 190px;
     background: var(--cinza-escuro);
     border-right: 1px solid rgba(212, 175, 55, 0.3);
-    padding: 16px;
     transform: translateX(-100%);
     transition: transform .25s ease;
     z-index: 1200;
+    width: clamp(240px, 75vw, 280px);  /* um pouco mais estreito */
+    max-height: calc(80dvh - 80px);   /* não ocupa a tela toda */
+    padding: 8px 10px;         /* padding menor */
+    overflow-y: auto;          /* rola se passar */
+    border-radius: 20px;
   }
   .nav-bar.open { transform: translateX(0); }
   body.nav-open { overflow: hidden; }
@@ -802,25 +888,128 @@ footer {
   .nav-bar ul {
     display: flex;
     flex-direction: column;
+    justify-content: start;
+    align-items: start;
     gap: 8px;
     margin: 0;
     padding: 0;
+    gap: 0;                    /* vamos controlar pelo padding dos links */
+    list-style: none;
   }
-  .nav-bar li { position: relative; }
-  .nav-bar .submenu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    pointer-events: auto;
-    box-shadow: none;
-    border: none;
-    padding: 0 0 0 8px;
-    gap: 0;
+
+  .nav-bar li { 
+    position: relative; 
+    width: 100%;
   }
+
+  .nav-bar li > a {
+    display: block;
+    padding: 12px 8px;         /* espaçamento igual em todos */
+    line-height: 1.2;
+    text-decoration: none;
+    color: var(--dourado);
+    text-transform: none;
+    border-radius: 6px;
+  }
+
+  .nav-bar li > a:hover,
+  .nav-bar li > a:focus-visible {
+    background: rgba(255,255,255,.06);
+    color: var(--branco);
+    outline: none;
+  }
+
+  .nav-bar .submenu { display: none !important; }
   .nav-bar .submenu li a { padding: 8px 10px; }
+
+  .nav-bar li:not(:last-child) > a {
+    border-bottom: 1px solid rgba(212,175,55,.15);
+}
 }
 
 
 
+@media (max-width: 900px) {
+  .antes, .depois {
+    display: none;
+  }
+
+    .carrossel {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0;
+  }
+  .carrossel .slide {
+    width: 100% !important;
+    margin: 0;
+  }
+  .carrossel .slide img {
+    width: 100% !important;
+    height: auto !important;   
+    display: block;
+  }
+
+  /* trilho */
+  .etiquetas {
+    display: flex;                 /* flex é mais previsível aqui que grid */
+    gap: 16px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    padding-inline: 10px 12px;          /* respiro visual */
+    scroll-padding-inline: 10px 12px;   /* alvo do snap nas bordas */
+    scrollbar-gutter: stable;
+    overscroll-behavior-inline: contain;
+    justify-content: start;
+
+
+    align-items: center;
+    padding-block: 14px;
+    background: var(--cinza-escuro);
+    border-top: 1px solid rgba(212,175,55,.3);
+    border-bottom: 1px solid rgba(212,175,55,.3);
+    position: relative;
+    padding: 10px 12px;
+
+    margin: 0;
+  }
+
+  .etiquetas::after {
+    content: '';
+    flex: 0 0 12px;
+  }
+
+  /* slides */
+  .etiquetinhas{
+    flex: 0 0 auto;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    /* snap pela ESQUERDA (não centralize) */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin-inline: 12px;
+  }
+
+  .etiquetas::-webkit-scrollbar { height: 6px; }
+  .etiquetas::-webkit-scrollbar-track { background: transparent; }
+  .etiquetas::-webkit-scrollbar-thumb {
+    background: rgba(212,175,55,.35);
+    border-radius: 8px;
+  }
+
+  /* 👉 garante que as pontas nunca “fiquem pra fora” */
+  .etiquetinhas:first-child { scroll-margin-left: 0; }
+  .etiquetinhas:last-child  { scroll-margin-right: 0; }
+
+  /* higiene: sem fades absolutos nas bordas */
+  .etiquetas::before,
+  .etiquetas::after { content: none !important; }
+}
 
