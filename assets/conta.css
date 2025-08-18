@@ -1,0 +1,94 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title h1 {
+  color: var(--dourado);
+  text-align: center;
+  font-weight: 500;
+}
+
+#email, #senha, #nome, #cpf, #cel, #repit-email, #repit-senha {
+  width: 40%;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,.35);
+  padding: 10px 16px;
+  margin-bottom: 10px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+input {
+  color: var(--dourado-mais-claro);
+  border: 1px solid var(--dourado-mais-escuro);
+}
+
+.inputs label {
+  align-self: flex-start;  
+  margin-left: 29%;       
+}
+
+a.esqueciSenha {
+  align-self: flex-end;  
+  margin-right: 29%;
+  color: var(--dourado) !important;
+  background-color: transparent;
+  border: none;
+}
+
+.login span {
+  color: var(--dourado-mais-claro);
+}
+
+#entrar {
+  margin-bottom: 10px;
+}
+
+.criar {
+  margin-bottom: 10px;
+}
+
+.login a {
+  text-decoration: none;
+  color: var(--text-claro);
+  margin-bottom: 10px;
+}
+
+.login a span:hover {
+  filter: brightness(1.1);
+  transition: 0.2s;
+}
+
+.enviar {
+  -webkit-appearance: none; /* remove estilo padrão iOS */
+  -moz-appearance: none;
+  appearance: none;
+  margin: 20px;
+  padding: 10px 16px;
+  border-radius: 15px;
+  background-color: var(--dourado);
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 20%;
+}
+
+.enviar:focus, 
+.enviar:active {
+  outline: none;
+  color: #000;
+}
+
+.enviar:hover{
+  filter: brightness(1.1);
+  transition: 0.2s;
+}

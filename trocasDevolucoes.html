@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="assets/global.css">
+  <link rel="stylesheet" href="assets/trocasDevolucoes.css">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Vip 18k</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>VIP 18K</title>
 </head>
 <body>
   <header>
     <!--TOPO-->
-    <div class="topo container">
+    <div class="topo">
     <div class="logo-area">
       <img src="assets/imagens/download (1).png" alt="Logo Vip 18K" id="logo">
     </div>
-
 
     <!--PESQUISA-->
     <div class="caixa-de-pesquisa">
@@ -29,6 +32,10 @@
 
 
     <!--ICONES-->
+    <button class="hamburger" id="btn-hamburger" aria-label="Abrir menu" aria-controls="primary-nav" aria-expanded="false">
+      <img src="assets/imagens/icons8-menu-hambúrguer-50.png" alt="">
+    </button>
+
     <div class="icones-usuario">
       <!--MINHA CONTA-->
       <div class="menu-conta">
@@ -39,12 +46,12 @@
 
         <!--MENU QUE ABRE AO CLICAR-->
         <div class="dropdown-conta" id="dropdown-conta">
-          <a href="#">Entrar</a>
-          <a href="#">Registrar</a>
+          <a href="conta.html">Entrar</a>
+          <a href="registrar.html">Registrar</a>
         </div>
       </div>
 
-      <a class="icone" href="carrinho.html">
+      <a class="icone carrinho" href="carrinho.html">
         <img src="assets/imagens/icons8-carrinho-30.png" alt="Meu carrinho">
         <span>Meu carrinho</span>
       </a>
@@ -53,7 +60,7 @@
 
 
   <!--NAV-BAR-->
-  <nav class="nav-bar ">
+  <nav class="nav-bar" id="primary-nav">
     <ul>
       <li><a href="index.html">Início</a></li>
 
@@ -105,7 +112,71 @@
           </ul>
       </li>
       <li><a href="https://wa.me/5521967010513">Atacado</a></li>
-      <li><a href="contatos.html">Contatos</a></li>
+      <li><a href="contatos.html">Fale Conosco</a></li>
     </ul>
   </nav>
 </header>
+
+<main>
+  <div class="login">
+      <section class="title">
+        <h1>Login</h1>
+      </section>
+
+      <section class="inputs">
+        <label for="email">Email</label>
+        <input type="email" id="email" autocomplete="off" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" autocomplete="off" required>
+        <a href="esqueciSenha.html" class="esqueciSenha">Esqueci a senha</a>
+      </section>
+
+      <button type="button" class="comprar-produto" id="entrar">Entrar</button>
+      <a href="registrar.html" class="criar">ou <span>Crie uma conta</span></a>
+  </div>
+</main>
+
+<footer>
+
+  <!--RODAPÉ-->
+  <section class="rodape">
+    <div class="coluna coluna1">
+        <p class="titulo">Institucional</p>
+          <ul>
+            <li><a href="quemSomos.html">Quem Somos</a></li>
+            <li><a href="trocasDevolucoes.html">Trocas e Devoluções</a></li>
+          </ul>
+    </div>
+
+    <div class="coluna coluna2">
+      <p class="titulo">Fale conosco</p>
+      <div class="detalhes email">
+        <img src="assets/imagens/icons8-e-mail-50.png" alt="">
+        <p class="email-texto">oficialvip18k@hotmail.com</p>
+      </div>
+      <div class="detalhes">
+          <img src="assets/imagens/icons8-whatsapp-50.png" alt="">
+          <p class="wpp-texto">21 96701-0513</p>
+      </div>
+    </div>
+
+    <div class="coluna coluna3">
+      <p class="titulo">Nossas Redes</p>
+        <div class="detalhes insta">
+          <img src="assets/imagens/icons8-instagram-50.png" alt="">
+          <a href="https://www.instagram.com/oficialvip18k/" target="_blank" rel="nooper noreferrer">oficialvip18k</a>
+      </div>
+
+      <div class="detalhes face">
+        <img src="assets/imagens/icons8-facebook-novo-50.png" alt="">
+        <a href="https://www.facebook.com/profile.php?id=61579103081337" target="_blank" rel="nooper noreferrer">VIP 18K</a>
+      </div>
+    </div>
+  </section>
+</footer>
+
+
+<script src="assets/validacoes.js"></script>
+</body>
+</html>

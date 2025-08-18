@@ -1,0 +1,44 @@
+.title h1 {
+  color: var(--dourado);
+  text-align: center;
+  font-weight: 500;
+}
+
+.carrinho {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrinho p {
+  margin: 20px;
+  font-size: 1.2rem;
+}
+
+.continuar-comprando {
+  -webkit-appearance: none; /* remove estilo padrão iOS */
+  -moz-appearance: none;
+  appearance: none;
+  margin: 20px;
+  padding: 10px 16px;
+  border-radius: 15px;
+  background-color: var(--dourado);
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.continuar-comprando:focus, 
+.continuar-comprando:active {
+  outline: none;
+  color: #000;
+}
+
+.continuar-comprando:hover{
+  filter: brightness(1.1);
+  transition: 0.2s;
+}
+
+
+

@@ -1,0 +1,25 @@
+.contato {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+}
+
+.direita {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.esquerda {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.esquerda input {
+  margin-bottom: 10px;
+}
+
+#mandar {
+  margin: 20px auto;
+}
