@@ -72,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (el) el.scrollLeft = 0;
   });
 
+
+//---MENU-HAMBURGUER---//
 (function () {
   const btn = document.getElementById('btn-hamburger');
   const nav = document.getElementById('primary-nav');
@@ -166,4 +168,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 

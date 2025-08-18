@@ -73,7 +73,6 @@ input#pesquisa {
   border: 1px solid var(--dourado-mais-escuro);
   padding: 0 40px 0 16px;
   background-color: var(--cinza-leve);
-  color: var(--text-claro);
   color: var(--dourado-mais-claro);
   font-weight: 400;
 }
@@ -652,6 +651,11 @@ footer {
     padding-left: 20px;
   }
 
+  #entrar {
+    width: 40% !important; 
+    margin-bottom: 10px;
+  }
+
   /* cada card com largura igual e fixa no carrossel */
   .conteiner-grid .produto {
     flex: 0 0 150px;                    /* ajuste fino: ~1 card por tela */
@@ -830,6 +834,15 @@ footer {
     margin: 0;
     max-width: none;
     min-width: 0;                /* permite encolher no grid */
+  }
+
+  #email, #senha, #nome, #cpf, #cel, #repit-email, #repit-senha {
+    width: 60% !important; 
+  }
+
+  .inputs label {
+    align-self: flex-start;  
+    margin-left: 18% !important;       
   }
 
   .icones-usuario {
@@ -1013,3 +1026,122 @@ footer {
   .etiquetas::after { content: none !important; }
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title h1 {
+  color: var(--dourado);
+  text-align: center;
+  font-weight: 500;
+}
+
+#email, #senha, #nome, #cpf, #cel, #repit-email, #repit-senha {
+  width: 40%;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,.35);
+  padding: 10px 16px;
+  margin-bottom: 10px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+input {
+  color: var(--dourado-mais-claro);
+  border: 1px solid var(--dourado-mais-escuro);
+}
+
+.inputs label {
+  align-self: flex-start;  
+  margin-left: 29%;       
+}
+
+a.esqueciSenha {
+  align-self: flex-end;  
+  margin-right: 29%;
+  color: var(--dourado) !important;
+  background-color: transparent;
+  border: none;
+}
+
+.login span {
+  color: var(--dourado-mais-claro);
+}
+
+#entrar {
+  margin-bottom: 10px;
+}
+
+.criar {
+  margin-bottom: 10px;
+}
+
+.login a {
+  text-decoration: none;
+  color: var(--text-claro);
+  margin-bottom: 10px;
+}
+
+.login a span:hover {
+  filter: brightness(1.1);
+  transition: 0.2s;
+}
+
+.erro-msg {
+  color: #ff6b6b;
+  font-size: .85rem;
+  margin: 6px 0 0 0;
+}
+
+/* borda do input quando inválido */
+input[aria-invalid="true"] {
+  border-color: #ff6b6b !important;
+  box-shadow: 0 0 0 2px rgba(255,107,107,.12) inset;
+}
+
+.carrinho {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrinho p {
+  margin: 20px;
+  font-size: 1.2rem;
+}
+
+.contato {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto;
+}
+
+.direita {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.esquerda {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.esquerda input {
+  margin-bottom: 10px;
+}
+
+#mandar {
+  margin: 20px auto;
+}
