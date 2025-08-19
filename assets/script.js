@@ -169,4 +169,39 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('btn-filtros');
+  const filtros = document.getElementById('filtros');
+  const backdrop = document.getElementById('backdrop');
+  const btnFechar = document.getElementById('fechar-filtros');
+
+  if (!btn || !filtros || !backdrop) return;
+
+  const abrir = () => {
+    filtros.classList.add('aberto');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+    backdrop.hidden = false;
+    requestAnimationFrame(() => backdrop.classList.add('mostrar'));
+  };
+
+  const fechar = () => {
+    filtros.classList.remove('aberto');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+    backdrop.classList.remove('mostrar');
+    setTimeout(() => { backdrop.hidden = true; }, 200);
+  };
+
+  btn.addEventListener('click', () => {
+    filtros.classList.contains('aberto') ? fechar() : abrir();
+  });
+
+  backdrop.addEventListener('click', fechar);
+  btnFechar && btnFechar.addEventListener('click', fechar);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && filtros.classList.contains('aberto')) fechar();
+  });
+});
 
