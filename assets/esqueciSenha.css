@@ -59,7 +59,6 @@ a.esqueciSenha {
   border: none;
   font-weight: 600;
   font-size: 1rem;
-  width: 20%;
 }
 
 .recuperar:focus, 
@@ -72,3 +71,4 @@ a.esqueciSenha {
   filter: brightness(1.1);
   transition: 0.2s;
 }
+

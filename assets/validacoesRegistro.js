@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const senhaInput = document.getElementById('senha');
   const cpfInput   = document.getElementById('cpf');
-  const btnEntrar  = document.getElementById('entrar');
+  const btnEntrar  = document.getElementById('registrar');
 
   // se não for a página do formulário, sai
   if (!emailInput || !senhaInput || !btnEntrar) return;
@@ -168,4 +168,3 @@ document.addEventListener('DOMContentLoaded', function () {
     // alert('Cadastro válido! Agora você pode enviar os dados.');
   });
 });
-

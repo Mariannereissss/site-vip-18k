@@ -64,11 +64,10 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', function () {
   // pega elementos
   const emailInput = document.getElementById('email');
-  const senhaInput = document.getElementById('senha');
-  const btnEntrar  = document.getElementById('entrar');
+  const btnEntrar  = document.getElementById('rec');
 
   // se não for a página do formulário, sai
-  if (!emailInput || !senhaInput || !btnEntrar) return;
+  if (!emailInput || !btnEntrar) return;
 
   // validações
   const isValidEmail = (email) =>
@@ -103,15 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  senhaInput.addEventListener('input', () => {
-    if (senhaInput.value.trim().length >= 8) clearError(senhaInput);
-  });
-  senhaInput.addEventListener('blur', () => {
-    if (senhaInput.value.trim().length < 8) {
-      showError(senhaInput, 'A senha deve ter pelo menos 8 caracteres.');
-    }
-  });
-
   // concluir cadastro
   btnEntrar.addEventListener('click', (e) => {
     e.preventDefault();
@@ -121,11 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
       showError(emailInput, 'Informe um e-mail válido (ex.: nome@dominio.com).');
       ok = false;
     } else clearError(emailInput);
-
-    if (senhaInput.value.trim().length < 8) {
-      showError(senhaInput, 'A senha deve ter pelo menos 8 caracteres.');
-      ok = false;
-    } else clearError(senhaInput);
 
 
     if (!ok) return;
