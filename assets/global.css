@@ -538,8 +538,12 @@ footer {
     background: transparent; 
   }
 
-  .logo-area { grid-area: logo; justify-self: center; }
-  .logo-area img { max-width: 120px; }
+  .logo-area { grid-area: logo; 
+    justify-self: center; 
+  }
+  .logo-area img { 
+    max-width: 120px; 
+  }
 
   /* MOSTRAR hambúrguer no mobile E posicionar na área 'hamb' */
   .hamburger {
@@ -625,8 +629,13 @@ footer {
     background: transparent; 
   }
 
-  .logo-area { grid-area: logo; justify-self: center; }
-  .logo-area img { max-width: 120px; }
+  .logo-area { 
+    grid-area: logo; 
+    justify-self: center; 
+  }
+  .logo-area img { 
+    max-width: 120px; 
+  }
 
   /* MOSTRAR hambúrguer no mobile E posicionar na área 'hamb' */
   .hamburger {
@@ -651,10 +660,6 @@ footer {
     margin: 0;
     max-width: none;
     min-width: 0;                /* permite encolher no grid */
-  }
-
-  #email, #senha, #nome, #cpf, #cel, #repit-email, #repit-senha {
-    width: 60% !important; 
   }
 
   .inputs label {
