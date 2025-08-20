@@ -6,7 +6,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/global.css">
-  <link rel="stylesheet" href="assets/produtos.css">
+  <link rel="stylesheet" href="assets/produtosFemininos.css">
 
    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -122,13 +122,12 @@
   <div class="filtros-wrap">
      <!-- FILTROS (SIDEBAR) -->
     <aside id="filtros" class="filtros" aria-label="Filtros">
-    <button type="button" class="fechar-filtros" id="fechar-filtros" aria-label="Fechar filtros">×</button>
       <form>
         <fieldset>
           <legend>Categorias</legend>
-          <label class="check"><input type="checkbox" name="cat" value="aneis"> Anéis (12)</label>
-          <label class="check"><input type="checkbox" name="cat" value="colares"> Colares (18)</label>
-          <label class="check"><input type="checkbox" name="cat" value="brincos"> Brincos (22)</label>
+          <label class="check"><input type="checkbox" name="cat[]" value="aneis"> Anéis (12)</label>
+          <label class="check"><input type="checkbox" name="cat[]" value="colares"> Colares (18)</label>
+          <label class="check"><input type="checkbox" name="cat[]" value="brincos"> Brincos (22)</label>
         </fieldset>
 
         <fieldset>
@@ -139,9 +138,9 @@
 
         <fieldset>
           <legend>Material</legend>
-          <label class="check"><input type="checkbox" name="mat" value="ouro18k"> Banhado a ouro 18k</label>
-          <label class="check"><input type="checkbox" name="mat" value="prata"> Prata</label>
-          <label class="check"><input type="checkbox" name="mat" value="zirconia"> Zircônia</label>
+          <label class="check"><input type="checkbox" name="mat[]" value="ouro18k"> Banhado a ouro 18k</label>
+          <label class="check"><input type="checkbox" name="mat[]" value="prata"> Prata</label>
+          <label class="check"><input type="checkbox" name="mat[]" value="zirconia"> Zircônia</label>
         </fieldset>
 
         <div class="acoes-filtro">

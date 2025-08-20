@@ -321,6 +321,10 @@ footer {
   width: 100%;
 }
 
+.produto h2, p { 
+  margin: 3px;
+}
+
 .rodape p .detalhes{
   font-size: 1.1rem;
   margin: 20px;

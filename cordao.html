@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/global.css">
+  <link rel="stylesheet" href="assets/cordao.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>VIP 18K</title>
+</head>
+<body>
+  <header>
+    <!--TOPO-->
+    <div class="topo">
+    <div class="logo-area">
+      <img src="assets/imagens/download (1).png" alt="Logo Vip 18K" id="logo">
+    </div>
+
+    <!--PESQUISA-->
+    <div class="caixa-de-pesquisa">
+      <input type="text" id="pesquisa" autocomplete="off" placeholder="Digite o que você procura...">
+      <button class="bot-lupa">
+        <img src="assets/imagens/icons8-pesquisar-30.png" alt="Ícone de lupa">
+      </button>
+    </div>
+
+
+    <!--ICONES-->
+
+    <button class="hamburger" id="btn-hamburger" aria-label="Abrir menu" aria-controls="primary-nav" aria-expanded="false">
+      <img src="assets/imagens/icons8-menu-hambúrguer-50.png" alt="">
+    </button>
+
+    <div class="icones-usuario">
+      <!--MINHA CONTA-->
+      <div class="menu-conta">
+        <button class="icone" id="btn-conta">
+          <img src="assets/imagens/icons8-usuário-30.png" alt="Minha conta">
+          <span>Minha conta</span>
+        </button>
+
+        <!--MENU QUE ABRE AO CLICAR-->
+        <div class="dropdown-conta" id="dropdown-conta">
+          <a href="conta.html">Entrar</a>
+          <a href="registrar.html">Registrar</a>
+        </div>
+      </div>
+
+      <a class="icone carrinho" href="carrinho.html">
+        <img src="assets/imagens/icons8-carrinho-30.png" alt="Meu carrinho">
+        <span>Meu carrinho</span>
+      </a>
+    </div>
+  </div>
+
+
+  <!--NAV-BAR-->
+  <nav class="nav-bar" id="primary-nav">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+
+        <li class="dropdown">
+          <a href="#">Cordões</a>
+          <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+        </li>
+
+      <li class="dropdown">
+        <a href="#">Anéis</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Pulseiras</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Pingentes</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Escapulários</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Kits</a>
+        <ul class="submenu">
+            <li><a href="#">Feminino</a></li>
+            <li><a href="#">Masculino</a></li>
+          </ul>
+      </li>
+      <li><a href="https://wa.me/5521967010513">Atacado</a></li>
+      <li><a href="contatos.html">Fale Conosco</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="galeria-produto">
+    <figure class="visor" aria-live="polite">
+        <img src="assets/imagens/20250723_155924.jpg" id="foto-principal" alt="">
+    </figure>
+
+  <ul class="thumbs" data-full="" role="list">
+    <li>
+        <button class="thumb is-active">
+            <img src="assets/imagens/20250723_155924.jpg" alt="">
+        </button>
+    </li>
+
+    <li>
+        <button class="thumb">
+            <img src="assets/imagens/20250723_155924.jpg" alt="">
+        </button>
+    </li>
+
+    <li>
+        <button class="thumb">
+            <img src="assets/imagens/20250723_155924.jpg" alt="">
+        </button>
+    </li>
+  </ul>
+  </section>
+
+  <section class="infos-produto">
+    <section class="title">
+        <h1>Escapulário</h1>
+    </section>
+
+    
+  </section>
+</main>
+
+
+<footer>
+  <!--RODAPÉ-->
+  <section class="rodape">
+    <div class="coluna coluna1">
+        <p class="titulo">Institucional</p>
+          <ul>
+            <li><a href="quemSomos.html">Quem Somos</a></li>
+            <li><a href="trocasDevolucoes.html">Trocas e Devoluções</a></li>
+          </ul>
+    </div>
+
+    <div class="coluna coluna2">
+      <p class="titulo">Fale conosco</p>
+      <div class="detalhes email">
+        <img src="assets/imagens/icons8-e-mail-50.png" alt="">
+        <p class="email-texto">oficialvip18k@hotmail.com</p>
+      </div>
+      <div class="detalhes">
+          <img src="assets/imagens/icons8-whatsapp-50.png" alt="">
+          <p class="wpp-texto">21 96701-0513</p>
+      </div>
+    </div>
+
+    <div class="coluna coluna3">
+      <p class="titulo">Nossas Redes</p>
+        <div class="detalhes insta">
+          <img src="assets/imagens/icons8-instagram-50.png" alt="">
+          <a href="https://www.instagram.com/oficialvip18k/" target="_blank" rel="nooper noreferrer">oficialvip18k</a>
+      </div>
+
+      <div class="detalhes face">
+        <img src="assets/imagens/icons8-facebook-novo-50.png" alt="">
+        <a href="https://www.facebook.com/profile.php?id=61579103081337" target="_blank" rel="nooper noreferrer">VIP 18K</a>
+      </div>
+    </div>
+  </section>
+</footer>
+
+
+<script src="assets/validacoesConta.js"></script>
+</body>
+</html>
