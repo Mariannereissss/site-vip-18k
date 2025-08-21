@@ -12,6 +12,7 @@ const visor = document.getElementById('foto-principal');
 
     // troca imagem do visor
     const novoSrc = btn.dataset.full;
+    
     // pré-carrega para evitar “piscada”
     const img = new Image();
     img.onload = () => { visor.src = novoSrc; };

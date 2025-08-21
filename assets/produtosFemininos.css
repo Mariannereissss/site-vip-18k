@@ -38,6 +38,7 @@
 } 
 
 .btn-filtro-mobile {
+  display: none;
     background-color: transparent;
     color: #fbc227;
     border-radius: 10px;

@@ -4,13 +4,14 @@
     align-items: flex-start; /* alinha pelo topo */
     justify-content: flex-start; /* cola à esquerda */
     gap: 10px; /* espaço entre galeria e infos (ajuste se quiser colado) */
+    margin: 5px 50px;
 }
 
 .galeria-produto {
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     gap: 14px;
-    max-width: 380px;
-    margin: 0 10px 20px 90px;
 }
 
 ul li {
@@ -18,12 +19,14 @@ ul li {
 }
 
 .visor {
-    margin: 0;
-    background-color: #111;
-    border: 1px solid #fbc227;
-    border-radius: 12px;
-    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .35);
-    padding: 8px;
+  flex: 1 1 100%;
+  max-width: 520px;  
+  margin: 0;
+  background-color: #111;
+  border: 1px solid #fbc227;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .35);
+  padding: 8px;
 }
 
 .visor img {
@@ -35,23 +38,29 @@ ul li {
 }
 
 .thumbs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     padding: 0;
     margin: 0;
+    order: -1;
+}
+
+.thumbs li { 
+  margin: 0; 
 }
 
 .thumb {
     display: block;
-    width: 100%;
-    aspect-ratio: 1/1;
     background: #111;
     border: 1px solid transparent;
     border-radius: 10px;
     padding: 4px;
     cursor: pointer;
     box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+    overflow: hidden;  
+    width: 90px;
+    height: 90px;
 }
 
 .thumb img {
@@ -74,13 +83,16 @@ ul li {
 .infos-produto {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 25px;
     text-align: left;
+    margin: 0 20px;
+
 }
 
 .title h1 {
     margin: 0 !important;
     text-align: left;
+    max-width: 550px;
 }
 
 .price {
@@ -107,10 +119,18 @@ ul li {
     border-radius: 20px;
 }
 
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 /* Área que envolve contador + botão comprar */
 .bots {
   display: flex;
   align-items: center;   /* ✅ alinha tudo no meio na vertical */
+  justify-content: center;
+  max-width: 300px;
   gap: 24px;             /* ajuste fino do espaço */
 }
 
@@ -123,6 +143,7 @@ ul li {
   border: 1px solid #2a2a2a;
   border-radius: 999px;  /* “pill” */
   background: #0f0f0f;
+  max-width: 120px;
 }
 
 /* Botões + e - com mesmo tamanho */
@@ -135,6 +156,12 @@ ul li {
   color: #f1f1f1;
   cursor: pointer;
   line-height: 1;
+  color: #fbc227;
+}
+
+.menos:hover, .mais:hover {
+  filter: brightness(1.6);
+  transition: 0.2s;
 }
 
 /* Número do contador */
@@ -142,6 +169,7 @@ ul li {
   min-width: 24px;
   text-align: center;
   font-weight: 600;
+  color: #fbc227;
 }
 
 /* Botão comprar com altura igual ao conjunto do contador */
@@ -157,42 +185,44 @@ ul li {
   cursor: pointer;
 }
 
+.comprar:hover {
+  filter: brightness(1.6);
+  transition: 0.2s;
+}
+
 /* Bloco do frete */
 .frete {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   max-width: 360px;       /* limite visual */
 }
 
+.frete__bots {
+  display: flex;
+  flex-direction: row;
+}
+
 /* Label acima do input */
-.frete label {
-  font-size: .95rem;
-  color: #d7d7d7;
+label {
+  font-size: 1.2rem;
+  color: #fbc227;
   letter-spacing: .3px;
+  margin: 0;
 }
 
 /* Container para sobrepor o botão ao input */
-.input-wrap {
-  position: relative;
-}
-
-/* Input com espaço para o botão à direita */
-.input-wrap input {
-  width: 100%;
-  height: 44px;
-  padding: 0 120px 0 14px; /* ✅ reserva espaço pro botão */
-  border-radius: 12px;
-  border: 1px solid #2a2a2a;
-  background: #111;
-  color: #f1f1f1;
-  outline: none;
+input#cep {
+  border: 1px solid #fbc227;
+  background-color: transparent;
+  padding: 15px 10px;
 }
 
 /* Botão “Calcular” encaixado à direita, por cima do input */
-.input-wrap .btn-calcular {
+input#cep .calc {
   position: absolute;
   top: 50%;
-  right: 6px;
+  right: 20px;
   transform: translateY(-50%);
   height: 36px;
   padding: 0 16px;
@@ -203,3 +233,87 @@ ul li {
   font-weight: 700;
   cursor: pointer;
 }
+
+.calc {
+  background-color: #fbc227;
+  border: none;
+}
+
+.calc:hover {
+  filter: brightness(1.6);
+  transition: 0.2s;
+}
+
+.parcelas p {
+  font-weight: 600;
+  margin: 0;
+}
+
+.parcelas a {
+  text-decoration: none;
+  color: #fbc227;
+  margin: 10px;
+}
+
+.parcelas a:hover {
+  filter: brightness(1.6);
+  transition: 0.2s;
+}
+
+.descricao h3 {
+  margin: 60px 0 20px 100px;
+  text-transform: uppercase;
+  color: var(--dourado);
+  font-size: 1.1rem;
+}
+
+.detalhess {
+  max-width: 900px;
+  margin: 20px 100PX;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  text-align: justify;
+}
+
+.detalhess .spann {
+  text-align: left !important;
+  color: #fbc227;
+  margin: 10px;
+}
+
+.detalhess ul {
+  margin: 0 0;
+  padding: 0;
+}
+
+.detalhess ul li {
+  margin: 6px;
+  padding: 0;
+}
+
+.spanner {
+  color: #efd07a;
+  margin: 5px;
+}
+
+.cuid {
+  margin: 10px
+}
+
+.recomendar {
+  text-align: center;
+  margin: 50px;
+}
+
+.titulo p {
+    text-transform: uppercase;
+    color: var(--dourado);
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+
