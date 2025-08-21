@@ -1,8 +1,16 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* alinha pelo topo */
+    justify-content: flex-start; /* cola à esquerda */
+    gap: 10px; /* espaço entre galeria e infos (ajuste se quiser colado) */
+}
+
 .galeria-produto {
     display: grid;
     gap: 14px;
-    max-width: 300px;
-    margin: 0 90px 20px;
+    max-width: 380px;
+    margin: 0 10px 20px 90px;
 }
 
 ul li {
@@ -63,3 +71,135 @@ ul li {
     box-shadow: 0 0 0 3px rgba(251, 194, 39, .25);
 }
 
+.infos-produto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.title h1 {
+    margin: 0 !important;
+    text-align: left;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.aumentar-produtos {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+
+.aumentar-produtos {
+   display: flex;
+   flex-direction: row;
+   align-items: center; 
+}
+
+.comprar {
+    margin: 5px 0;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+/* Área que envolve contador + botão comprar */
+.bots {
+  display: flex;
+  align-items: center;   /* ✅ alinha tudo no meio na vertical */
+  gap: 24px;             /* ajuste fino do espaço */
+}
+
+/* Grupo do contador */
+.aumentar-produtos {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid #2a2a2a;
+  border-radius: 999px;  /* “pill” */
+  background: #0f0f0f;
+}
+
+/* Botões + e - com mesmo tamanho */
+.menos, .mais {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #3a3a3a;
+  background: #151515;
+  color: #f1f1f1;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Número do contador */
+.aumentar-produtos .contador {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Botão comprar com altura igual ao conjunto do contador */
+.bot-comprar .comprar {
+  height: 40px;                 /* ✅ bate com 36px do botão +/-, + padding do grupo */
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid #fbc227;
+  background: #fbc227;
+  color: #111;
+  font-weight: 700;
+  letter-spacing: .5px;
+  cursor: pointer;
+}
+
+/* Bloco do frete */
+.frete {
+  display: grid;
+  gap: 8px;
+  max-width: 360px;       /* limite visual */
+}
+
+/* Label acima do input */
+.frete label {
+  font-size: .95rem;
+  color: #d7d7d7;
+  letter-spacing: .3px;
+}
+
+/* Container para sobrepor o botão ao input */
+.input-wrap {
+  position: relative;
+}
+
+/* Input com espaço para o botão à direita */
+.input-wrap input {
+  width: 100%;
+  height: 44px;
+  padding: 0 120px 0 14px; /* ✅ reserva espaço pro botão */
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  background: #111;
+  color: #f1f1f1;
+  outline: none;
+}
+
+/* Botão “Calcular” encaixado à direita, por cima do input */
+.input-wrap .btn-calcular {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid #fbc227;
+  background: #fbc227;
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+}
