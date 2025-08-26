@@ -4,7 +4,7 @@
     align-items: flex-start; /* alinha pelo topo */
     justify-content: flex-start; /* cola à esquerda */
     gap: 10px; /* espaço entre galeria e infos (ajuste se quiser colado) */
-    margin: 5px 50px;
+    margin: 10px 150px;
 }
 
 .galeria-produto {
@@ -20,7 +20,7 @@ ul li {
 
 .visor {
   flex: 1 1 100%;
-  max-width: 520px;  
+  max-width: 510px;  
   margin: 0;
   background-color: #111;
   border: 1px solid #fbc227;
@@ -83,10 +83,9 @@ ul li {
 .infos-produto {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 10px;
     text-align: left;
     margin: 0 20px;
-
 }
 
 .title h1 {
@@ -113,16 +112,36 @@ ul li {
    align-items: center; 
 }
 
-.comprar {
-    margin: 5px 0;
-    padding: 10px 15px;
-    border-radius: 20px;
+.quantidades {
+  max-height: 60px;
+  margin: 0 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .botoes {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+}
+
+.tamanhos {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  font-size: 1.1rem;
+}
+
+.tamanhos button {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 15px 10px;
+}
+
+.tamanhos button:focus {
+  border-color: var(--dourado);
 }
 
 /* Área que envolve contador + botão comprar */
@@ -132,6 +151,7 @@ ul li {
   justify-content: center;
   max-width: 300px;
   gap: 24px;             /* ajuste fino do espaço */
+  margin: 10px 15px;
 }
 
 /* Grupo do contador */
@@ -174,9 +194,9 @@ ul li {
 
 /* Botão comprar com altura igual ao conjunto do contador */
 .bot-comprar .comprar {
-  height: 40px;                 /* ✅ bate com 36px do botão +/-, + padding do grupo */
-  padding: 0 22px;
-  border-radius: 999px;
+  height: 50px;                 /* ✅ bate com 36px do botão +/-, + padding do grupo */
+  width: 160px;
+  border-radius: 25px;
   border: 1px solid #fbc227;
   background: #fbc227;
   color: #111;
@@ -242,6 +262,10 @@ input#cep .calc {
 .calc:hover {
   filter: brightness(1.6);
   transition: 0.2s;
+}
+
+.parcelas {
+  margin: 10px 0;
 }
 
 .parcelas p {
@@ -316,4 +340,98 @@ input#cep .calc {
     text-align: center;
 }
 
+.quant {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  color: var(--dourado);
+}
+
+/* Grid com 6 colunas: seta | 4 produtos | seta */
+.conteiner-grid {
+  display: grid;
+  grid-template-columns: 48px repeat(4, minmax(180px, 1fr)) 48px;
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Garante que NÃO ficam fixos na tela */
+.conteiner-grid .antes,
+.conteiner-grid .depois {
+  position: static !important;      /* <- anula qualquer 'fixed' antigo */
+  place-self: center;               /* centraliza no grid */
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+}
+
+.conteiner-grid .antes img,
+.conteiner-grid .depois img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Cartões de produto ocupam as 4 colunas do meio */
+.conteiner-grid .produto {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsivo: em telas menores, esconda as setas e deixe os produtos fluírem */
+@media (max-width: 900px) {
+  .conteiner-grid {
+    grid-template-columns: repeat(2, minmax(150px, 1fr)); /* só produtos */
+  }
+  .conteiner-grid .antes,
+  .conteiner-grid .depois {
+    display: none;
+  }
+}
+
+/* A área da foto precisa "prender" a imagem ampliada */
+.visor {
+  position: relative;
+  overflow: hidden;        /* esconde as bordas quando der zoom */
+}
+
+/* Imagem pronta pra ampliar */
+#foto-principal.zoom-img {
+  transition: transform 0.15s ease;
+  transform: scale(1);
+  transform-origin: center center;   /* muda dinamicamente via JS */
+  cursor: zoom-in;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Quando estiver com zoom ativo */
+.visor.is-zoomed #foto-principal.zoom-img {
+  cursor: zoom-out;
+}
+
+/* (Opcional) dica de clique */
+.zoom-hint {
+  position: absolute;
+  bottom: 10px; left: 50%;
+  transform: translateX(-50%);
+  font-size: .85rem;
+  background: rgba(0,0,0,.55);
+  padding: 6px 10px;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: .9;
+}
+
+.visor.is-zoomed .zoom-hint { 
+  display: none; 
+}
 

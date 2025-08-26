@@ -25,7 +25,7 @@
 .esquerda {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 10px 10px 10px 100px;
 }
 
 .esquerda img {
@@ -101,3 +101,23 @@ button #mandar {
   box-sizing: border-box;
 }
 
+#mensagem {
+  color: #fff;
+}
+
+@media (max-width:690px) {
+  .direita input, textarea {
+    width: 70% !important;
+  }
+
+  .direita label {
+    align-self: flex-start;  
+    margin-left: 16% !important;    
+  }
+
+  .esquerda {
+    margin: 10px 20px;
+  }
+
+}
+  

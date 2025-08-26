@@ -92,3 +92,17 @@ a.esqueciSenha {
   transition: 0.2s;
 }
 
+@media (max-width: 690px) {
+  #email, #senha, #nome, #cpf, #cel, #repit-email, #repit-senha {
+    width: 50%;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,.35);
+    padding: 10px 16px;
+    margin-bottom: 20px;
+  }
+
+  .inputs label {
+    align-self: flex-start;  
+    margin-left: 23% !important;       
+  }
+}
