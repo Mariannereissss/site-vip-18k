@@ -235,7 +235,7 @@ button.comprar-produto:hover{
   margin-bottom: 50px;
 }
 
-@media (max-width: 536px) {
+@media (max-width: 645px) {
   .conteiner-grid {
     display: flex;                    /* sai do grid */
     flex-wrap: nowrap;

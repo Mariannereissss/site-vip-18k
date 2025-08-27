@@ -47,71 +47,55 @@ btnMais.addEventListener('click', () => atualizarContador(1));
 btnMenos.addEventListener('click', () => atualizarContador(-1));
 
 document.addEventListener('DOMContentLoaded', () => {
-  (function initGridPaginado() {
-    const grid = document.querySelector('.conteiner-grid');
-    if (!grid) return;
+  const grid = document.querySelector('.conteiner-grid');
+  if (!grid) return;
 
-    const btnAntes  = grid.querySelector('.antes');
-    const btnDepois = grid.querySelector('.depois');
+  const btnAntes  = grid.querySelector('.antes');
+  const btnDepois = grid.querySelector('.depois');
+  const produtos  = Array.from(grid.querySelectorAll('.produto'));
+  if (!produtos.length) return;
 
-    // todos os cards (ignora as setas)
-    const produtos = Array.from(grid.querySelectorAll('.produto'));
-    if (produtos.length === 0) return;
+  let pagina = 0;
 
-    const porPagina = 4;
+  // 4 (≥1200), 3 (940–1199), 2 (646–939), null (≤645 = rolável)
+  function getPorPagina() {
+    const w = window.innerWidth;
+    if (w >= 1200) return 4;
+    if (w >= 940)  return 3;
+    if (w >= 646)  return 2;
+    return null;   // ≤645 → sem paginação
+  }
+
+  function render() {
+    const porPagina = getPorPagina();
+
+    if (porPagina === null) {
+      // modo rolável: mostra todos e desativa botões
+      produtos.forEach(card => { card.style.display = ''; });
+      if (btnAntes)  btnAntes.disabled  = true;
+      if (btnDepois) btnDepois.disabled = true;
+      return;
+    }
+
     const totalPaginas = Math.ceil(produtos.length / porPagina);
-    let pagina = 0;
+    if (pagina >= totalPaginas) pagina = totalPaginas - 1;
 
-    function render() {
-      const inicio = pagina * porPagina;
-      const fim    = inicio + porPagina;
+    const inicio = pagina * porPagina;
+    const fim    = inicio + porPagina;
 
-      produtos.forEach((card, i) => {
-        const mostrar = i >= inicio && i < fim;
-        // deixa o CSS original agir quando visível
-        card.style.display = mostrar ? '' : 'none';
-      });
-
-      // não esconda; apenas desabilite
-      if (btnAntes)  btnAntes.disabled  = (pagina === 0);
-      if (btnDepois) btnDepois.disabled = (pagina >= totalPaginas - 1);
-    }
-
-    if (btnDepois) {
-      btnDepois.addEventListener('click', () => {
-        if (pagina < totalPaginas - 1) {
-          pagina++;
-          render();
-        }
-      });
-    }
-
-    if (btnAntes) {
-      btnAntes.addEventListener('click', () => {
-        if (pagina > 0) {
-          pagina--;
-          render();
-        }
-      });
-    }
-
-    // acessibilidade
-    [btnAntes, btnDepois].forEach(btn => {
-      if (!btn) return;
-      btn.setAttribute('tabindex', '0');
-      btn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          btn.click();
-        }
-      });
+    produtos.forEach((card, i) => {
+      card.style.display = (i >= inicio && i < fim) ? '' : 'none';
     });
 
-    render();
+    if (btnAntes)  btnAntes.disabled  = (pagina === 0);
+    if (btnDepois) btnDepois.disabled = (pagina === totalPaginas - 1);
+  }
 
-    // debug opcional:
-    // console.log('Produtos:', produtos.length, 'Total de páginas:', totalPaginas);
-  })();
+  btnAntes?.addEventListener('click', () => { pagina = Math.max(0, pagina - 1); render(); });
+  btnDepois?.addEventListener('click', () => { pagina = pagina + 1; render(); });
+
+  window.addEventListener('resize', render);
+  render();
 });
 
 // ====== ZOOM NO CLIQUE (sem modal) ======
