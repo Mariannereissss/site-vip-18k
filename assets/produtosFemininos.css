@@ -1,42 +1,54 @@
+/* Grid principal: coluna dos filtros responsiva */
 .grid {
-    display: grid;
-    grid-template-columns: 280px auto;
-    gap: 20px;
-    column-gap: 25px;
-    margin: 20px 60px 40px;
-    grid-template-rows: auto 1fr;      /* 👈 linha 1 = toolbar; linha 2 = produtos */
-    align-items: start;                /* evita stretch vertical */
+  display: grid;
+  grid-template-columns: clamp(200px, 24vw, 280px) 1fr;
+  gap: 20px;
+  column-gap: 25px;
+  margin: 20px 60px 40px;
+  grid-template-rows: auto 1fr;
+  align-items: start;
 }
 
-.conteiner-grid {
-    display: grid; 
-    grid-template-columns: repeat(4, minmax(0, 1fr)); /* desktop: 3 colunas */ 
-    column-gap: 30px; 
-    row-gap: 40px; 
-    align-items: start; 
-    flex-wrap: wrap;
-    justify-items: center;
-    grid-column: 2;
-    grid-row: 2;
-    margin: 10px;
+.conteiner-grid{
+  display: grid;
+  /* Colunas fluídas: de 160px até 220px, expandindo a 1fr quando couber */
+  grid-template-columns: repeat(auto-fit, minmax(clamp(160px, 22vw, 220px), 1fr));
+  column-gap: clamp(14px, 2.5vw, 30px);
+  row-gap: clamp(18px, 3vw, 40px);
+  align-items: start;
+  justify-items: stretch; /* preenche a coluna inteira */
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
 }
 
-/* ===== CARDS — sem largura fixa ===== */ 
+/* ===== CARDS ===== */
 .produto, .card {
-    width: 100%; 
-    max-width: 220px; /* opcional p/ telas muito largas */ 
-    height: 420px;
-    background: #111; 
-    border: 1px solid #222; 
-    border-radius: 12px; 
-    padding: 14px; 
-    display: flex;
-    align-items: center; 
-    flex-direction: column;
-    gap: 20px; 
-    text-align: center; 
-    cursor: pointer; 
-} 
+  width: 85%;
+  /* nada de max-width fixo; deixe o grid controlar a largura */
+  max-width: none;
+  min-width: 0;            /* evita overflow do conteúdo interno */
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: clamp(10px, 2vw, 14px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 2vw, 16px);
+  text-align: center;
+  cursor: pointer;
+  max-height: 500px !important;
+}
+
+/* Imagens cheias e proporcionais (4:5) */
+.produto img, .card img {
+  width: 70%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
 .btn-filtro-mobile {
   display: none;
@@ -49,14 +61,6 @@
 select#sort {
     margin-right: 10px;
     background-color: aliceblue;
-}
-
-.produto img, .card img { 
-    width: 60%; 
-    height: auto !important; 
-    aspect-ratio: 4 / 5; 
-    object-fit: cover; 
-    border-radius: 10px; 
 }
 
 .produto:hover {
@@ -169,7 +173,7 @@ input[type="checkbox"]:focus-visible{
 }
 
 .ordenacao { 
-    margin: 0; 
+    margin: 10px; 
 }
 
 button.btn-comprar { 
@@ -195,21 +199,23 @@ button.btn-comprar:hover {
     transition: 0.2s; 
 }
 
-/* Sidebar */ 
-.filtros-wrap { 
-    position: sticky; 
-    top: 160px; /* ajuste conforme a altura do header */ 
-    align-self: start; 
-    background: #0a0a0a; 
-    border: 1px solid #222; 
-    border-radius: 12px; 
-    padding: 14px; 
-    max-height: calc(100dvh - 120px); 
-    overflow: auto; 
-    grid-column: 1;
-    grid-row: 1 / 3; 
-    max-width: 280px;
-} 
+.filtros-wrap {
+  position: sticky;
+  top: 130px;
+  margin: 0 0 10px ;
+  align-self: start;
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 14px;
+  max-height: calc(100dvh - 120px);
+  overflow: auto;
+  grid-column: 1;
+  grid-row: 1 / 3;
+  /* ocupa a coluna toda, que já é clamp(200px, 24vw, 280px) */
+  width: 80%;
+  max-width: 450px;
+}
 
 .filtros fieldset { 
     border: none; 
@@ -235,30 +241,62 @@ button.btn-comprar:hover {
     background-color: transparent; 
 }
 
-@media (max-width: 1200px){
+@media (max-width: 400px) {
+  .ordenacao {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .produto {
+    width: 100% !important;
+  }
+
+  .produto img {
+    width: 100% !important;
+  }
+
+  .ordenacao label {
+    display: none;
+  }
+
+  .ordenacao select {
+    max-height: 40px;
+  }
+
+  .conteiner-grid {
+    margin-top: 20px;
+  }
+
+  .produto {
+    margin: auto;
+  }
+}
+
+
+/*@media (max-width: 1200px){
   .conteiner-grid{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* 2) depois QUEBRA para 2 colunas */
+
 @media (max-width: 900px){
   .conteiner-grid{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* 3) em ≤600px continua 2 colunas, e passa a ENCOLHER */
-/* (as colunas ficam 2 × 1fr; os cards ocupam 100% da coluna e encolhem junto) */
 @media (max-width: 600px){
   .conteiner-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* nunca 1 */
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
     column-gap: clamp(10px, 3vw, 20px);
     row-gap: clamp(10px, 3vw, 18px);
   }
-}
+}*/
 
-@media (max-width: 900px){
+@media (max-width: 985px){
   /* grid vira 1 coluna (toolbar em cima, produtos abaixo) */
   .grid{
     grid-template-columns: 1fr;
@@ -267,8 +305,17 @@ button.btn-comprar:hover {
     column-gap: 0;
     margin: 16px 12px 20px;
   }
-  .catalogo__toolbar{ grid-column: 1; grid-row: 1; justify-content: space-between; }
-  .conteiner-grid{    grid-column: 1; grid-row: 2; }
+
+  .catalogo__toolbar{ 
+    grid-column: 1; 
+    grid-row: 1; 
+    justify-content: space-between; 
+  }
+
+  .conteiner-grid{    
+    grid-column: 1; 
+    grid-row: 2; 
+  }
 
   /* esconder a sidebar fixa */
   .filtros-wrap{ display: none; }
@@ -316,4 +363,72 @@ button.btn-comprar:hover {
 
   /* trava o scroll da página quando drawer aberto */
   body.no-scroll{ overflow: hidden; }
+}
+
+
+
+/* Garantir que toda a página calcule largura com padding/borda */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Os cards sempre ocupam a coluna inteira do grid */
+.produto, .card {
+  width: 100%;            /* em vez de 85% */
+  max-width: none;
+}
+
+/* imagens preenchendo o card corretamente */
+.produto img, .card img {
+  width: 75%;            /* em vez de 70% */
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* ===== Breakpoint principal ===== */
+@media (max-width: 985px) {
+  /* Grade interna: colunas fluídas com largura MÍNIMA + gaps garantidos */
+  .conteiner-grid{
+    /* cada card terá pelo menos 180–200px; quando não couber, quebra linha */
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    column-gap: clamp(12px, 3.5vw, 22px);
+    row-gap: clamp(12px, 3.5vw, 22px);
+    padding-left: clamp(8px, 3vw, 16px);
+    padding-right: clamp(8px, 3vw, 16px);
+    margin: 0; /* remove margens que possam “comer” espaço do gap */
+    justify-items: stretch; /* cards ocupam a coluna toda */
+    align-items: start;
+  }
+
+  /* (Opcional) reduzir um pouco o padding dos cards no mobile para ganhar respiro */
+  .produto, .card {
+    padding: clamp(8px, 2.5vw, 12px);
+  }
+}
+
+/* Reduzir cards e imagens quando a tela for menor que 1133px */
+@media (max-width: 1134px) {
+  .conteiner-grid {
+    /* mantém a lógica de colunas fluídas, mas cards menores */
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    column-gap: clamp(12px, 2.5vw, 20px);
+    row-gap: clamp(12px, 2.5vw, 24px);
+  }
+
+  .produto, .card {
+    max-width: 200px;         /* antes era bem maior */
+    padding: clamp(8px, 1.8vw, 12px);
+  }
+
+  .produto img, .card img {
+    width: 85%;               /* reduz a proporção da imagem */
+    aspect-ratio: 4 / 5;
+  }
+
+  .produto h2 {
+    font-size: 0.95rem;       /* texto um pouco menor */
+  }
+
+  .preco {
+    font-size: 0.9rem;
+  }
 }
