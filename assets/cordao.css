@@ -4,7 +4,8 @@
     align-items: flex-start; /* alinha pelo topo */
     justify-content: flex-start; /* cola à esquerda */
     gap: 10px; /* espaço entre galeria e infos (ajuste se quiser colado) */
-    margin: 10px 150px;
+    margin: 10px auto;
+    max-width: 1200px; 
 }
 
 .galeria-produto {
@@ -20,7 +21,7 @@ ul li {
 
 .visor {
   flex: 1 1 100%;
-  max-width: 490px;  
+  max-width: 650px;
   min-width: 400px;
   margin: 0;
   background-color: #111;
@@ -92,11 +93,11 @@ ul li {
 .title h1 {
     margin: 0 !important;
     text-align: left;
-    max-width: 550px;
+    max-width: 100%;
 }
 
 .price {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     margin: 10px 0;
 }
@@ -270,14 +271,14 @@ input#cep .calc {
 }
 
 .parcelas p {
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
 }
 
 .parcelas a {
   text-decoration: none;
   color: #fbc227;
-  margin: 10px;
+  margin: 0;
 }
 
 .parcelas a:hover {
@@ -446,6 +447,15 @@ input#cep .calc {
   .bots {
     display: flex;
     flex-direction: column;
+  }
+
+  .detalhess {
+    margin: 20px !important;
+  }
+
+  .descricao h3 {
+    text-align: left;
+    margin: 20px;
   }
 }
 

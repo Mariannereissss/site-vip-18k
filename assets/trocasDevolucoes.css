@@ -1,4 +1,25 @@
-.trocasDevolucoes {
-    text-align: center;
-    margin: 30px;
+
+.trocasDevolucoes p {
+    text-align: left;
+    letter-spacing: 0.1rem;
+    font-size: 1.1rem;
+    text-indent: 20px;
 }
+
+span {
+    color: #fbc227;
+}
+
+.trocasDevolucoes {
+    margin: 20px auto 30px;
+    background-color: #1a1a1a;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    padding: 30px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
